@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Card, CardContent, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import Center from './Center'
-import useForm from '../hooks/useForm'
+
 import { createAPIEndpoint, ENDPOINTS } from '../api'
 import useStateContext from '../hooks/useStateContext'
 import { useNavigate } from 'react-router'
+import userForm from '../hooks/userForm'
 
 export default function Login() {
   const { context, setContext, resetContext } = useStateContext();
@@ -17,7 +18,7 @@ export default function Login() {
     errors,
     setErrors,
     handleInputChange
-  } = useForm(getFreshModel);
+  } = userForm(getFreshModel);
 
   useEffect(() => {
     resetContext()
