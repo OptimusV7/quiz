@@ -4,9 +4,15 @@ import { Box } from '@mui/system'
 import Center from './Center'
 
 import { createAPIEndpoint, ENDPOINTS } from '../api'
-import useStateContext from '../hooks/useStateContext'
 import { useNavigate } from 'react-router'
 import userForm from '../hooks/userForm'
+import useStateContext from '../hooks/userStateContext'
+
+
+const getFreshModel = () => ({
+  name: '',
+  email: ''
+}) 
 
 export default function Login() {
   const { context, setContext, resetContext } = useStateContext();
